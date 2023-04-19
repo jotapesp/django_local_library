@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Local Library - Authors</title>{% endblock %}
+
+{% block content %}
+  <h1>Author List</h1>
+  {% if user.is_authenticated %}
+    {% if perms.catalog.can_mark_returned %}
+      <ul>
+        <li><a href="{% url 'author-create' %}">Add author</a></li>
+      </ul>
+    {% endif %}
+  {% endif %}
+  {% if authors_list %}
+    <ul>
+      {% for author in authors_list %}
+        <li>
+          <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }} ({{ author.date_of_birth }} - {{ author.ddate_of_death }})</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+        <p>There are no authors registered.</p>
+  {% endif %}
+    {% if pages > 1 %}
+      <form action="" method="POST">
+        {% csrf_token %}
+        <label for='page'>Page (between 1 and {{ pages }}):</label>
+        <input type="number" id="page" name="page" min="1" max="5">
+      </form>
+    {% endif %}
+  {% if user.is_authenticated %}
+    {% if perms.catalog.can_mark_returned %}
+      <ul>
+        <li><a href="{% url 'author-create' %}">Add author</a></li>
+      </ul>
+    {% endif %}
+  {% endif %}
+{% endblock %}
