@@ -19,13 +19,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'rx+o4133fvkw%eiv+o*aj@j))oa^j9aw1d+3fcco*$=%ovi*9e')
+# SECRET_KEY = "cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag"
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 # SECRET_KEY = "django-insecure-rx+o4133fvkw%eiv+o*aj@j))oa^j9aw1d+3fcco*$=%ovi*9e"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['web-production-3640.up.railway.app', '127.0.0.1']
@@ -75,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "mhouse.wsgi.application"
 
 
-# Database
+# 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
