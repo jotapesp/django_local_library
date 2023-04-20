@@ -134,7 +134,7 @@ DATABASES['default'].update(db_from_env)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'catalog/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'catalog/static/')]
 # STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
